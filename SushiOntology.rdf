@@ -1,0 +1,1321 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi/"
+     xml:base="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi">
+        <rdfs:comment xml:lang="en">Sushi antology for XM_0059 Knowledge Representattion, with Dr. P.S.H. Koopmann</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#ingredientOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Dishes"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Ingredients"/>
+        <rdfs:comment>Contains an ingredient, it is made (partially) of</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#hasFoodRestriction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#hasFoodRestriction">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#ingredientOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#ingredientOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Ingredients"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Dishes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgCrustacean -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgCrustacean">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Crustacean"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgShellfish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgFish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgFish">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Fish"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgSeafood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgMollusk -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgMollusk">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mollusk"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgShellfish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgMushroom -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgMushroom">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mushrooms"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Allergies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgNuts -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgNuts">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nuts"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Allergies"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nuts"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgSalmon -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgSalmon">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Salmon"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgFish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgSeafood -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgSeafood">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Seafood"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Allergies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgShellfish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgShellfish">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Shellfish"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgSeafood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgTuna -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgTuna">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Tuna"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AlgFish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Allergies -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Allergies">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AnimalFood -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AnimalFood">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Meat"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Seafood"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegan_"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegetarian"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AnimalProduct -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AnimalProduct">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Ingredients"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Avocado -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Avocado">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#CaliforniaRoll -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#CaliforniaRoll">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Uramaki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Avocado"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Crabs"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Cucumber"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nori"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Carrot -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Carrot">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Clams -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Clams">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mollusk"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Crabs -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Crabs">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Crustacean"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#CreamCheese -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#CreamCheese">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AnimalProduct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Crustacean -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Crustacean">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Shellfish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Cucumber -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Cucumber">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#CucumberRoll -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#CucumberRoll">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Maki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Cucumber"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Dishes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Dishes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#DragonRoll -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#DragonRoll">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Uramaki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Avocado"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Cucumber"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nori"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Unagi"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Eel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Eel">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Unagi"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Fish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#EelNigiri -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#EelNigiri">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nigiri"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Eel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#EggChicken -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#EggChicken">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AnimalProduct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Fish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Fish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Seafood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FishEggs -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FishEggs">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Fish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FishRoe -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FishRoe">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FishEggs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodDisclaimer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodDisclaimer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Ingredients"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Ingredients -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Ingredients">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#KewpieMayo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#KewpieMayo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AnimalProduct"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Sauces"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#EggChicken"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Lobsters -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Lobsters">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Crustacean"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Maki -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Maki">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SushiRolls"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nori"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Rice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Meat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Meat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Meats"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Meats -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Meats">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Ingredients"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mollusk -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mollusk">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Shellfish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mushrooms -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mushrooms">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mussels -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mussels">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mollusk"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nigiri -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nigiri">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Dishes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Rice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nigirimeshi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nigirimeshi">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Onigiri"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#RiceBalls"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nori -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nori">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Seaweed"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#NotVegan -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#NotVegan">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AnimalProduct"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Meats"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#NotVegetarian -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#NotVegetarian">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Meats"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nuts -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nuts">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Omusubi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Omusubi">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Onigiri"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#RiceBalls"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Onigiri -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Onigiri">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#RiceBalls"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Oysters -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Oysters">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mollusk"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PhiladelphiaRoll -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PhiladelphiaRoll">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Uramaki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Avocado"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#CreamCheese"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nori"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Salmon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlainOmusubi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlainOmusubi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Omusubi"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nori"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Ingredients"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#RainbowRoll -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#RainbowRoll">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Uramaki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#CaliforniaRoll"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Salmon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Tuna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Whitefish"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#RawFish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#RawFish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodDisclaimer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Fish"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Eel"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Restaurant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Restaurant"/>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Rice -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Rice">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#RiceBalls -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#RiceBalls">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Dishes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Rice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Salmon -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Salmon">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Fish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SalmonMaki -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SalmonMaki">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Maki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Salmon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SalmonNigiri -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SalmonNigiri">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nigiri"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Salmon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SalmonOmusubi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SalmonOmusubi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Omusubi"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Salmon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SesameSeeds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SalmonTemaki -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SalmonTemaki">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Temaki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Salmon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SalmonUramaki -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SalmonUramaki">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Uramaki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FishRoe"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Salmon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Sauces -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Sauces">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Ingredients"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Seafood -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Seafood">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Meats"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Seaweed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Seaweed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SesameSeeds -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SesameSeeds">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Shellfish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Shellfish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Seafood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#ShiitakeMushroom -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#ShiitakeMushroom">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Mushrooms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#ShrimpNigiri -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#ShrimpNigiri">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nigiri"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Shrimps"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#ShrimpTempuraRoll -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#ShrimpTempuraRoll">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Uramaki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Avocado"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nori"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Shrimps"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Shrimps -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Shrimps">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Crustacean"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SushiRolls -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SushiRolls">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Dishes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Temaki -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Temaki">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Dishes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nori"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SesameSeeds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Tuna -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Tuna">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Fish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#TunaMaki -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#TunaMaki">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Maki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Tuna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#TunaNigiri -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#TunaNigiri">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nigiri"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Tuna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#TunaOmusubi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#TunaOmusubi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Omusubi"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Nori"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Tuna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#TunaTemaki -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#TunaTemaki">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Temaki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Tuna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Unagi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Unagi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Fish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Uramaki -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Uramaki">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#SushiRolls"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegan -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegan">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#VeganUramaki -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#VeganUramaki">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Uramaki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Carrot"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Zucchini"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegan_ -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegan_">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegetarian"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#VegetableMaki -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#VegetableMaki">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Maki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Carrot"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#ShiitakeMushroom"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#VegetableUramaki -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#VegetableUramaki">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Uramaki"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Carrot"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#KewpieMayo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Zucchini"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegetarian -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegetarian">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AnimalProduct"/>
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#AnimalProduct"/>
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Whitefish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Whitefish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Fish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Zucchini -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Zucchini">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
