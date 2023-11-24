@@ -274,7 +274,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegan_"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegan"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegetarian"/>
     </owl:Class>
     
@@ -684,7 +684,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#NotVegan"/>
     </owl:Class>
     
 
@@ -1162,7 +1162,8 @@
     <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegan -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegan">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#FoodRestrictions"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegetarian"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
@@ -1195,25 +1196,6 @@
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Zucchini"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegan_ -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegan_">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Food"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#contains"/>
-                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#PlantBased"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/inigom/ontologies/2023/10/sushi#Vegetarian"/>
     </owl:Class>
     
 
