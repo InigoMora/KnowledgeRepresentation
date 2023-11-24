@@ -40,7 +40,7 @@ ontology_path = "eco.evidence-and-conclusion-ontology.49.owl.xml"
 getSubsumersOfConcept = 'ECO_0000246'
 
 ontology_name = ontology_path.split('.')[0]
-ontology_name = "evidence and conclusion"
+# ontology_name = "evidence and conclusion" # if you want to input a specific name
 
 save_directory = f"part3_results/{ontology_name}"
 # if path doesn't exist, create directory
