@@ -174,6 +174,7 @@ for concept in allConcepts:
     conjunction_temp = elFactory.getConjunction(concept_a_temp,concept_b_temp)
     Conjunctions.append(conjunction_temp)
 
+
 elementDic = {} # Abox
 changed = True
 elementIDcounter = 0
@@ -204,8 +205,8 @@ elementDic[element_initial_id] = element_initial
 while changed == True : # If a change was made, rerun the rules
     changed = False
     for element in list(elementDic):
-        # Apply every rule to the element ***
-        # If a rule is applied (makes a change), note as changed = True ******
+        # Apply every rule to the element
+        # If a rule is applied (makes a change), note as changed = True
 
         #⊤-rule: Add ⊤ to any individual.
         # When individuals are created, ⊤ is included
@@ -219,14 +220,13 @@ while changed == True : # If a change was made, rerun the rules
         for conjunction in list(elementDic[element][1]):
             #divide the concepts of the conjunction and if the individual elements are not in [element][0], add them
             # This only works for binary conjunctions
-            #****+*+*+*+*+*+*+*
             conjunction_str_temp = str(conjunction)   #Converts the conjuction to str, becuae i don't know if there is a function to get the concepts in conjunction ****
             conjunction_str_temp = conjunction_str_temp[:-1]    # Removes last character ")"
             conjunction_str_temp = conjunction_str_temp[1:]     # Removes first character "("
             conjunction_concepts = conjunction_str_temp.split(" n ")    #Split the concepts
             concept_a_temp = elFactory.getConceptName(conjunction_concepts[0])  #Turn the string concepts into elFactory concepts
             concept_b_temp = elFactory.getConceptName(conjunction_concepts[1])
-            if concept_a_temp not in elementDic[element][0]:    #***maybe change to for concpt in concepts using concept_a_temp, concept_b_temp*****
+            if concept_a_temp not in elementDic[element][0]: 
                 elementDic[element][0].append(concept_a_temp)
                 changed = True
             if concept_b_temp not in elementDic[element][0]:
@@ -271,7 +271,7 @@ while changed == True : # If a change was made, rerun the rules
                 left_concept = elFactory.getConceptName(gci_concepts[0])  #Turn the string concepts into elFactory concepts
                 right_concept = elFactory.getConceptName(gci_concepts[1])
                 if (left_concept in list(elementDic[element][0])) and (right_concept not in elementDic[element][0]): #Reads if (left concept is found in (has been assifgned to) the element) and (right concept has not been assigned to element) then
-                    #CHECK IF RIGHT CINCEPT IS EXISTENTIAL OR CONCEPT NAME, by checking if it is in the list of concepts, then add it ****handle concept names first*******
+                    #check if right concept is existential or concept name, by checking if it is in the list of concepts, then add it
                     if right_concept in ConceptNames:   #Reads, if right handside concept is a concept name (and not an existential role). Handle concept axioms separate from existential roles
                         #add right concept to element
                         elementDic[element][0].append(right_concept)
@@ -285,7 +285,7 @@ while changed == True : # If a change was made, rerun the rules
                             concept_temp = elFactory.getConceptName(role_concept[1])
                             existential_role = elFactory.getExistentialRoleRestriction(role, concept_temp)
                             if (existential_role in Existential) and (concept_temp in ConceptNames) and ([role, concept_temp] not in elementDic[element][2]):    #This is ignoring roles like (Econtains.Ingredients n Food), not handeled because of time constraint, and checks if the existential role has already been applied
-                                # Reminder element[2] = assigned relations, [role, concept name] ***** [[role].[concept],[element]] --> *** [[existential_role, concept_temp], element_temp]
+                                # Reminder element[2] = assigned relations --> [[existential_role, concept_temp], element_temp]
                                 element_temp=None
                                 concept_found = False
                                 for element_ in list(elementDic):
@@ -312,7 +312,7 @@ for item in result_set:
 
 
 
-
+# I feel like there is a bug with something of the conjunctions ******
 
 
 
