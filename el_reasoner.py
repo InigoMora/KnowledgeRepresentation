@@ -503,7 +503,6 @@ while changed == True : # If a change was made, rerun the rules
                                 if [[role, concept_temp], element_temp] not in elementDic[element][2]: # , and checks if the existential role has already been applied
                                     elementDic[element][2].append([[role, concept_temp], element_temp]) #Add role to initial element with direction to new element
                                     changed = True
-                                #*****handle connection to other element for Existential******
                         except:
                             pass
                         
