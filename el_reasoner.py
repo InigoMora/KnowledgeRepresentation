@@ -427,10 +427,32 @@ while changed == True : # If a change was made, rerun the rules
 
         #∃-rule 2: If d has an r-successor with C assigned, add ∃r.C to d.
             #HANDLE NEXT********
-        for existential_role in list(elementDic[element][2]):
-            #print(elementDic[element][2][0])
-            #print(elementDic[element][2])
-            pass
+        for existential_role_list in list(elementDic[element][2]):
+            #print(elementDic[element][2][0][0][0]) # These prints the role, of the first entry in existential roles in the element # Ugly but it works
+            #print(existential_role_list[0][0])  # These prints the role, of the first entry in existential roles in the element
+
+            #print(existential_role_list[0][0]) #role
+            #print(existential_role_list[0][1]) #concept
+            #print(existential_role_list[1])    #element with role relation
+
+            role = existential_role_list[0][0]
+            neighbor = existential_role_list[1] #element with role relation
+            for role_neighbor_concept in elementDic[neighbor][0]:
+                #construct relation backwards
+                role_relation = [[role,role_neighbor_concept],neighbor]
+                print(role_relation)
+                if role_relation not in elementDic[element][2]:
+                    elementDic[element][2].append(role_relation)
+                    changed = True
+                    print("NEW RElation")
+
+            """
+            for role_connection in len(existential_role_list):
+                print(existential_role_list[role_connection][0])
+            """
+            
+
+            #for role_neighbore_concept in list(elementDic[element][0]):
 
 
         #⊑-rule: If d has C assigned and C ⊑ D ∈ T , then also assign D to d
@@ -448,7 +470,6 @@ while changed == True : # If a change was made, rerun the rules
                         elementDic[element][0].append(right_concept)
                         changed = True
                     #Handle axioms with Existential Roles
-                    #Problem where TOP is added twice happnes somewhere here **********
                     else:   # if right handside concept is NOT a concept name, it might be existential role
                         try:    #In case it is formatted different and this does not work, the exepotion will be do nothing
                             right_concept_strt = str(right_concept)[1:] #Remove the first letter (should be an E)
@@ -466,11 +487,11 @@ while changed == True : # If a change was made, rerun the rules
                                     #print("id: ", id)
                                     if concept_temp in list(elementDic[element_][0]):
                                         concept_found = True
-                                        print("OLD CONCEPT")
+                                        #print("OLD CONCEPT")
                                         element_temp = element_ #Record existing element with concept concept_temp
                                         #break   #***** # We need to use list(elementDic) (a copy of the keys) because Dictionaries cannot be edited while they are being iterated through, thus we need to break here because else the list would not be updated
                                 if concept_found == False:
-                                    print("NEW CONCEPT")
+                                    #print("NEW CONCEPT")
                                     element_new_id, element_new = create_element() #If none are found, create a new one
                                     #print("element_temp_id", element_new_id)
                                     #print("element_temp", element_new)
@@ -549,6 +570,7 @@ while changed == True : # If a change was made, rerun the rules
 
 
 #erase*******
+"""
 print()
 print("RESULTS")
 for concept in elementDic[element][0]:
@@ -559,8 +581,11 @@ for concept in elementDic[0][0]:
     print(concept)
 
 print()
+"""
 
-#Problem with TOP, was added twice
+
+
+# I haven't seen duplicaes, but I am so tured of building this entire thing on my own that I am adding this just in case *******
 result_set=elementDic[0][0]
 for item in result_set:
     print(item)
