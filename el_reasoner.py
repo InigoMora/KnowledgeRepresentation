@@ -67,51 +67,6 @@ for concept in allConcepts:
     elif not foundConjunction and conceptType == "ConceptConjunction":
         foundConjunction = True
 
-# Creating EL concepts and axioms
-elFactory = gateway.getELFactory()
-
-conceptA = elFactory.getConceptName("A")
-conceptB = elFactory.getConceptName("B")
-conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
-role = elFactory.getRole("r")
-existential = elFactory.getExistentialRoleRestriction(role, conjunctionAB)
-top = elFactory.getTop()
-conjunction2 = elFactory.getConjunction(top, existential)
-
-gci = elFactory.getGCI(conjunctionAB, conjunction2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 """
 EL-Completion Rules
@@ -138,17 +93,6 @@ EL-Completion Algorithm
 4. If D0 was assigned to d0, return YES, otherwise return NO
 """
 
-
-
-
-
-
-
-
-
-
-
-
 #Build Completion Algorithm
 
 """
@@ -171,19 +115,13 @@ EL Algorithm
 4. If D0 was assigned to d0, return YES, otherwise return NO
 """
 
-
-
 #tbox, from tbox = ontology.tbox() --> object, the box itself, contains axioms
 #axioms, from axioms = tbox.getAxioms() --> list of all axioms in the tbox (axioms themselves)
 #allConcempts, from allConcepts = ontology.getSubConcepts() --> all concepts in the ontology, including definitions, e.g. (∃contains.AnimalProduct ⊔ ∃contains.Meats) as a concept, and KewpieMayo and ∃contains.KewpieMayo
 #conceptNames, from conceptNames = ontology.getConceptNames() --> all the defined concept names. e.g. KewpieMayo, (but NOT ∃contains.KewpieMayo)
 
-
 #Finding axiom type --> for axiom in axioms:, axiomType = axiom.getClass().getSimpleName(), e.g. axiomType == "GeneralConceptInclusion"
 #Finding concepts --> for concept in allConcepts:, conceptType = concept.getClass().getSimpleName(), e.g. ConceptName, -or- e.g. ConceptConjunction
-
-
-
 
 
 # Creating EL concepts and axioms
@@ -204,12 +142,8 @@ Existential = []    # ExistentialRoleRestrictions as per elFactory ****
 for axiom in axioms:
     axiomType = axiom.getClass().getSimpleName()
     if(axiomType == "GeneralConceptInclusion"):
-        #print("I found a general concept inclusion:")
-        #print(formatter.format(axiom))
         gci_temp=elFactory.getGCI(axiom.lhs(),axiom.rhs())
         GCI.append(gci_temp)
-        #print(gci_temp)
-        #****handle******
     elif(axiomType == "EquivalenceAxiom"):
         concepts_temp = axiom.getConcepts()    #handle***** # If the TBox contains equivalence axioms C ≡ D, replace each such axiom by the two axioms C ⊑ D and D ⊑ C
         #append C ⊑ D
@@ -219,27 +153,14 @@ for axiom in axioms:
         gci_temp=elFactory.getGCI(concepts_temp[1],concepts_temp[0])
         GCI.append(gci_temp)
 
-
-#Handle TOP ******** all concepts should be allConcepts ⊑ TOP ***** get them all and iterate throgh them all******* *****maybe after done with everything*******
-
 for concept in allConcepts:
   conceptType = concept.getClass().getSimpleName()
   if(conceptType == "ConceptName"):
     ConceptNames.append(elFactory.getConceptName(formatter.format(concept)))  #****replace A with concept
     
-    #Check how to handle top (and if we need to), the previous top ⊤ and elFactory TOP are different, maybe if top concept found, add TOP (from elFactory)******
-    #HANDLE****
-    """
-  elif(conceptType == "TopConcept$"):
-    print("TOP CONCEWPOT WAS FOUND: !!!!!", formatter.format(concept) )
-    ConceptTop.append(elFactory.getConceptName(formatter.format(concept)))
-    #Handle*******
-    print("I found the top concept: "+formatter.format(concept))
-    print()
-    """
+    #TOP is handeled by adding the concept TOP to evey new element
 
   elif(conceptType == "ExistentialRoleRestriction"):
-    #print("I found an existential role restriction:"+formatter.format(concept))
     role_temp = elFactory.getRole(formatter.format(concept.role()))  #Change filler concept to elFactory object
     concept_filler_temp = elFactory.getConceptName(formatter.format(concept.filler()))  #Change role to elFactory object
     existential_rr = elFactory.getExistentialRoleRestriction(role_temp, concept_filler_temp )   #*****Among the roles, ∃contains.(¬Eel ⊓ Fish) is being found. Implelment way to handle ¬ (even if it is just ignoring them)
@@ -253,87 +174,9 @@ for concept in allConcepts:
     conjunction_temp = elFactory.getConjunction(concept_a_temp,concept_b_temp)
     Conjunctions.append(conjunction_temp)
 
-
-#Check TBOX
-"""
-print("GCI")    #contains stuff like: AlgTuna <= (Econtains.Tuna n Food)
-for item in GCI:
-    print(item)
-#print(GCI)
-
-print("ConceptNames")
-for item in ConceptNames:
-    print(item)
-#print(ConceptNames)
-
-print("Conjunctions")   #contains stuff like: (∃contains.Mollusk n Food)
-for item in Conjunctions:
-    print(item)
-#print(Conjunctions)
-
-print("ExistentialRoleRestrictions")
-for item in ExistentialRoleRestrictions:
-    print(item)
-#print(ExistentialRoleRestrictions)
-
-print("Existential")
-for item in Existential:
-    print(item)
-#print(Existential)
-"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#******
-"""
-conceptA = elFactory.getConceptName("Rice")
-role = elFactory.getRole("contains")
-existential = elFactory.getExistentialRoleRestriction(role, conceptA)
-
-print("IS RICE THERE: ", bool(existential in Existential))
-"""
-
-
-
-
-
-
-
-
-
-
-
-#Errase ******
-#Available****
-#New tBox, for use with elFactory
-"""
-GCI = []    # general concept inclusion, C ⊑ D, as in C is smaller than D, and included in D
-ConceptNames = []   #All named concepts (not Conjunctions, etc. Handeled separatedly)
-Conjunctions = []   # A ⊓ B, A and B at the same time
-    #These two are the same, in different formats *******
-ExistentialRoleRestrictions = []    # ∃role.concept List of lists, [[role, conceptname]]
-Existential = []    # ExistentialRoleRestrictions as per elFactory ****
-"""
-
-
-
-
-
 elementDic = {} # Abox
 changed = True
 elementIDcounter = 0
-
 
 def get_unique_id():
     global elementIDcounter
@@ -370,15 +213,14 @@ while changed == True : # If a change was made, rerun the rules
         #⊓-rule 1: If d has C⊓D assigned, assign also C and D to d. 
         #Check for all concept assigned to element, find C⊓D and 
         #If find something, check for conjuction in tbox
-        #conceptNames = ontology.getConceptNames()
         #If it is conjuction then apply it
         #e.g. if C⊓D, add C and D
         # if C and D, check if C⊓D is in tbox, if it is, apply C⊓D
         for conjunction in list(elementDic[element][1]):
-            print(conjunction)
             #divide the concepts of the conjunction and if the individual elements are not in [element][0], add them
             # This only works for binary conjunctions
-            conjunction_str_temp = str(conjunctionAB)   #Converts the conjuction to str, becuae i don't know if there is a function to get the concepts in conjunction ****
+            #****+*+*+*+*+*+*+*
+            conjunction_str_temp = str(conjunction)   #Converts the conjuction to str, becuae i don't know if there is a function to get the concepts in conjunction ****
             conjunction_str_temp = conjunction_str_temp[:-1]    # Removes last character ")"
             conjunction_str_temp = conjunction_str_temp[1:]     # Removes first character "("
             conjunction_concepts = conjunction_str_temp.split(" n ")    #Split the concepts
@@ -395,30 +237,12 @@ while changed == True : # If a change was made, rerun the rules
         for concept in list(elementDic[element][0]):
             for other_concept in list(elementDic[element][0]):
                 if concept != other_concept:
-                    if not(elFactory.getConjunction(concept, other_concept) in elementDic[element][1]) and not(elFactory.getConjunction(other_concept, concept) in elementDic[element][1]): #If (A n B) and (B n A) are not in element[0] (the list of concepts for this element)
+                    if (elFactory.getConjunction(concept, other_concept) not in elementDic[element][1]) and (elFactory.getConjunction(other_concept, concept) not in elementDic[element][1]): #If (A n B) and (B n A) are not in element[0] (the list of concepts for this element)
                         concept_conjunction = elFactory.getConjunction(concept, other_concept)
                         if concept_conjunction in Conjunctions:
-                            #Errase print statemtns******
-                            print("FOUND COnjunction in tbox")
-                            print(concept_conjunction)
                             #If the concept conjunction is found in the tbox, assign it to the element
                             elementDic[element][1].append(concept_conjunction)
                             changed = True
-
-
-
-
-        #Check existential role ExistentialRoleRestrictions to add
-        for concept in list(elementDic[element][0]):
-            # Roleas are stored as concepts e.g. Econtains.Rice     #*****Problem, how to know itr is existential, E is just a letter, can be confused, e.g. Elephant (concept) is not ∃ lephant
-            #for role_restriction in 
-            break
-        # Relations [[role].[concept],[element]]
-
-
-
-
-
 
         #∃-rule 1: If d has ∃r.C assigned:
             #1. If there is an element e with initial concept C assigned, make e the r-successor of d.
@@ -426,38 +250,21 @@ while changed == True : # If a change was made, rerun the rules
         #This previous rule is contained in the CGI handling found ahead
 
         #∃-rule 2: If d has an r-successor with C assigned, add ∃r.C to d.
-            #HANDLE NEXT********
         for existential_role_list in list(elementDic[element][2]):
-            #print(elementDic[element][2][0][0][0]) # These prints the role, of the first entry in existential roles in the element # Ugly but it works
-            #print(existential_role_list[0][0])  # These prints the role, of the first entry in existential roles in the element
-
-            #print(existential_role_list[0][0]) #role
-            #print(existential_role_list[0][1]) #concept
-            #print(existential_role_list[1])    #element with role relation
-
+            #existential_role_list[0][0] --> role
+            #existential_role_list[0][1] --> concept
+            #existential_role_list[1] --> element with role relation 
             role = existential_role_list[0][0]
             neighbor = existential_role_list[1] #element with role relation
             for role_neighbor_concept in elementDic[neighbor][0]:
                 #construct relation backwards
                 role_relation = [[role,role_neighbor_concept],neighbor]
-                print(role_relation)
                 if role_relation not in elementDic[element][2]:
                     elementDic[element][2].append(role_relation)
                     changed = True
-                    print("NEW RElation")
-
-            """
-            for role_connection in len(existential_role_list):
-                print(existential_role_list[role_connection][0])
-            """
-            
-
-            #for role_neighbore_concept in list(elementDic[element][0]):
-
 
         #⊑-rule: If d has C assigned and C ⊑ D ∈ T , then also assign D to d
         for concept in list(elementDic[element][0]):  #For every concept assigned
-            #******handle **** Do I need to exlude TOP as everything is a subsummer of TOP?***********
             for gci in GCI:     #For every GCI in tBox
                 gci_str_temp = str(gci)   #Converts the conjuction to str, becuae i don't know if there is a function to get the concepts in conjunction ****
                 gci_concepts = gci_str_temp.split(" <= ")    #Split the concepts
@@ -477,114 +284,28 @@ while changed == True : # If a change was made, rerun the rules
                             role = elFactory.getRole(role_concept[0])
                             concept_temp = elFactory.getConceptName(role_concept[1])
                             existential_role = elFactory.getExistentialRoleRestriction(role, concept_temp)
-                            #print(right_concept_strt)
                             if (existential_role in Existential) and (concept_temp in ConceptNames) and ([role, concept_temp] not in elementDic[element][2]):    #This is ignoring roles like (Econtains.Ingredients n Food), not handeled because of time constraint, and checks if the existential role has already been applied
                                 # Reminder element[2] = assigned relations, [role, concept name] ***** [[role].[concept],[element]] --> *** [[existential_role, concept_temp], element_temp]
                                 element_temp=None
                                 concept_found = False
                                 for element_ in list(elementDic):
-                                    #print("element_", element_)
-                                    #print("id: ", id)
                                     if concept_temp in list(elementDic[element_][0]):
                                         concept_found = True
-                                        #print("OLD CONCEPT")
                                         element_temp = element_ #Record existing element with concept concept_temp
-                                        #break   #***** # We need to use list(elementDic) (a copy of the keys) because Dictionaries cannot be edited while they are being iterated through, thus we need to break here because else the list would not be updated
                                 if concept_found == False:
-                                    #print("NEW CONCEPT")
                                     element_new_id, element_new = create_element() #If none are found, create a new one
-                                    #print("element_temp_id", element_new_id)
-                                    #print("element_temp", element_new)
                                     elementDic[element_new_id] = element_new
                                     elementDic[element_new_id][0].append(concept_temp)    #and append the concept_temp to the new element
-                                    #elementDic[element_initial_id] = element_initial
-                                    #break   # We need to use list(elementDic) (a copy of the keys) because Dictionaries cannot be edited while they are being iterated through, thus we need to break here because else the list would not be updated
                                     element_temp = element_new_id
-                                if [[role, concept_temp], element_temp] not in elementDic[element][2]: # , and checks if the existential role has already been applied
+                                if [[role, concept_temp], element_temp] not in elementDic[element][2]: # and checks if the existential role has already been applied
                                     elementDic[element][2].append([[role, concept_temp], element_temp]) #Add role to initial element with direction to new element
                                     changed = True
                         except:
                             pass
                         
-                    
-                
-            #break   #***** # We need to use list(elementDic) (a copy of the keys) because Dictionaries cannot be edited while they are being iterated through, thus we need to break here because else the list would not be updated
-        #break
-                    #print("GCI str: ", gci_str_temp)
-                    #print("left concept: ", left_concept)
-                    #print("right concept: ",right_concept)
 
 
-
-
-                    # AlgSalmon <= (Food n Econtains.Salmon)
-
-
-
-
-                    #if ([role, concept_temp] not in elementDic[element][2]: # , and checks if the existential role has already been applied
-
-
-
-
-
-"""
-        #*****I think I am aready doing it *********
-        #at some point I have to check the axioms (tbox) to add subsumers, inclusion, etc ***(?)*****
-        for axiom in axioms:
-            axiom_type = axiom.getClass().getSimpleName()
-            #print(axiom)
-            #print(axiom_type)
-            if axiom_type == 'GeneralConceptInclusion':
-                # ⊑ ∃contains. is also GeneralConceptInclusion
-
-                break
-                # DO this
-                #changed = True
-"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#erase*******
-"""
-print()
-print("RESULTS")
-for concept in elementDic[element][0]:
-    print(concept)
-
-
-for concept in elementDic[0][0]:
-    print(concept)
-
-print()
-"""
-
-
-
-# I haven't seen duplicaes, but I am so tured of building this entire thing on my own that I am adding this just in case *******
+# I haven't seen duplicaes, but I am so tired of building this entire thing on my own that I am adding this just in case *******
 result_set=elementDic[0][0]
 for item in result_set:
     print(item)
